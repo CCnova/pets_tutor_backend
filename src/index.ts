@@ -1,12 +1,7 @@
-import dotenv from 'dotenv';
 import app from './app';
+import { databaseHelper } from './helpers/database.helper';
 import server from './server';
 
-if (process.env.NODE_ENV !== 'production') dotenv.config();
-
-server.start(app);
-
-// AppDataSource.initialize().then((dataSource) => {
-//   console.log(dataSource.manager);
-// });
-
+databaseHelper.connect().then(() => {
+  server.start(app);
+});

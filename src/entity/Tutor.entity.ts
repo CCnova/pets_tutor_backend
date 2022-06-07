@@ -11,4 +11,8 @@ export class Tutor {
 
   @OneToMany(() => Pet, (pet) => pet.id)
   pets: Pet[];
+
+  constructor(name: string) {
+    this.name = name;
+  }
 }
